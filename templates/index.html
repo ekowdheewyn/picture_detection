@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/check" method="POST" enctype="multipart/form-data">
+    <input name='image' type="file" accept="image/*">
+    <input type="submit" value="Submit">
+  </form>
+  <img src="data:image/png;base64,{{ img_data }}" alt="img_data"  id="imgslot"/>
+  <p>
+    {% if error %}
+    <div style="color:red;"><strong>Error:</strong> {{ error }} </div>
+    {% endif %}
+    {% if success %}
+    <div style="color:green;"><strong>Success:</strong> {{ success }} </div>
+    {% endif %}
+  </p>
+</body>
+</html>
